@@ -7,7 +7,7 @@
             "type": "amazon-ebs",
             "profile": "{{user `aws_profile`}}",
             "region": "us-east-1",
-            "instance_type": "t2.micro",
+            "instance_type": "t3.micro",
             "source_ami_filter": {
                 "filters": {
                   "owner-alias": "aws-marketplace",
@@ -19,12 +19,12 @@
             },
             "ssh_timeout": "5m",
             "ssh_username": "centos",
-            "ami_name": "danf-example-{{timestamp}}",
+            "ami_name": "AIG-InSpec-Training-DanF{{timestamp}}",
             "run_tags": {
-                "Name": "danf-AIG-InSpec-Training"
+                "Name": "AIG-InSpec-Training-DanF"
             },
             "tags": {
-                "X-Application": "danf-AIG-InSpec-Training",
+                "X-Application": "AIG-InSpec-Training-DanF",
                 "X-ttl": "20"
             }
          }
