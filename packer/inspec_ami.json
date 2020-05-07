@@ -1,0 +1,39 @@
+{
+    "variables": {
+        "aws_profile":  "solutions-architects"
+    },
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "profile": "{{user `aws_profile`}}",
+            "region": "us-east-1",
+            "instance_type": "t2.micro",
+            "source_ami_filter": {
+                "filters": {
+                  "owner-alias": "aws-marketplace",
+                  "product-code": "aw0evgkw8e5c1q413zgy5pjce",
+                  "virtualization-type": "hvm"
+                },
+                "owners": ["aws-marketplace"],
+                "most_recent": true
+            },
+            "ssh_timeout": "5m",
+            "ssh_username": "centos",
+            "ami_name": "danf-example-{{timestamp}}",
+            "run_tags": {
+                "Name": "danf-AIG-InSpec-Training"
+            },
+            "tags": {
+                "X-Application": "danf-AIG-InSpec-Training",
+                "X-ttl": "20"
+            }
+         }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "files/bootstrap.sh",
+            "pause_before": "10s"
+        }
+    ]
+}
