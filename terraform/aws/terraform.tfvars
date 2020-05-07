@@ -9,7 +9,7 @@
 "tag_dept" = "sales"
 "tag_contact" = "dmontanez@chef.io"
 "tag_application" = "inspec-training"
-"count" = "15"
+"count" = "4"
 
 /////If necessary://////////////////////
 //"origin"="danf"

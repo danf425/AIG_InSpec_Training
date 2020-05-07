@@ -1,2 +1,5 @@
 .terraform
-aws/.terraform
+*tfvars
+*tfstate*
+.kitchen
+
