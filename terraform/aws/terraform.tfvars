@@ -3,12 +3,13 @@
 "aws_key_pair_file" = "~/.ssh/dmontanez-aws"
 "aws_key_pair_name" = "dmontanez-aws"
 "aws_image_user" = "centos"   //centos, ubuntu, ec2-user, etc.
-"tag_customer" = "test"
-"tag_project" = "danf"
-"tag_name" = "danf"
-"tag_dept" = "sales"
-"tag_contact" = "dmontanez@chef.io"
-"tag_application" = "inspec-training"
+"X-Customer" = "test"
+"X-Project" = "danf"
+"X-Name" = "danf"
+"X-Dept" = "sales"
+"X-Contact" = "dmontanez@chef.io"
+"X-Contact"="danf@gmail.com"
+"X-Application" = "inspec-training"
 "count" = "4"
 
 /////If necessary://////////////////////

@@ -31,17 +31,17 @@ variable "count" {
 
 ////////////////////////////
 // Tags////////////////////
-variable "tag_customer" {}
+variable "X-Customer" {}
 
-variable "tag_project" {}
+variable "X-Project" {}
 
-variable "tag_name" {}
+variable "X-Name" {}
 
-variable "tag_dept" {}
+variable "X-Dept" {}
 
-variable "tag_contact" {}
+variable "X-Contact" {}
 
-variable "tag_application" {}
+variable "X-Application" {}
 
 variable "tag_ttl" {
   default = 4

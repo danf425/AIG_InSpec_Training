@@ -16,11 +16,11 @@ resource "aws_instance" "inspec_jumpstart" {
 
   tags {
     Name          = "inspec_jumpstart_${random_id.instance_id.hex}"
-    X-Dept        = "${var.tag_dept}"
-    X-Customer    = "${var.tag_customer}"
-    X-Project     = "${var.tag_project}"
-    X-Application = "${var.tag_application}"
-    X-Contact     = "${var.tag_contact}"
+    X-Dept        = "${var.X-Dept}"
+    X-Customer    = "${var.X-Customer}"
+    X-Project     = "${var.X-Project}"
+    X-Application = "${var.X-Application}"
+    X-Contact     = "${var.X-Contact}"
     X-TTL         = "${var.tag_ttl}"
   }
 

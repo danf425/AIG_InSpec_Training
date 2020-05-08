@@ -13,12 +13,12 @@ resource "random_id" "instance_id" {
 resource "aws_vpc" "inspec_jumpstart_vpc" {
   cidr_block = "10.0.0.0/16"
   tags {
-    Name          = "${var.tag_name}-vpc"
-    X-Dept        = "${var.tag_dept}"
-    X-Customer    = "${var.tag_customer}"
-    X-Project     = "${var.tag_project}"
-    X-Contact     = "${var.tag_contact}"
-    X-Application = "${var.tag_application}"
+    Name          = "${var.X-Name}-vpc"
+    X-Dept        = "${var.X-Dept}"
+    X-Customer    = "${var.X-Customer}"
+    X-Project     = "${var.X-Project}"
+    X-Contact     = "${var.X-Contact}"
+    X-Application = "${var.X-Application}"
     X-TTL         = "${var.tag_ttl}"
   }
 }
@@ -28,7 +28,7 @@ resource "aws_vpc" "inspec_jumpstart_vpc" {
 resource "aws_internet_gateway" "inspec_jumpstart_gateway" {
   vpc_id = "${aws_vpc.inspec_jumpstart_vpc.id}"
   tags {
-    Name = "${var.tag_name}_inspec_jumpstart_gateway-${var.tag_application}"
+    Name = "${var.X-Name}_inspec_jumpstart_gateway-${var.X-Application}"
   }
 }
 
@@ -48,7 +48,7 @@ resource "aws_subnet" "inspec_jumpstart_subnet" {
   map_public_ip_on_launch = true
 
   tags {
-    Name = "${var.tag_name}_inspec_jumpstart_subnet-${var.tag_application}"
+    Name = "${var.X-Name}_inspec_jumpstart_subnet-${var.X-Application}"
   }
 }
 

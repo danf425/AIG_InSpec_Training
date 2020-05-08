@@ -6,12 +6,12 @@ resource "aws_security_group" "inspec_jumpstart" {
   vpc_id      = "${aws_vpc.inspec_jumpstart_vpc.id}"
 
   tags {
-    Name          = "${var.tag_customer}-${var.tag_project}_${random_id.instance_id.hex}_${var.tag_application}_security_group"
-    X-Dept        = "${var.tag_dept}"
-    X-Customer    = "${var.tag_customer}"
-    X-Project     = "${var.tag_project}"
-    X-Application = "${var.tag_application}"
-    X-Contact     = "${var.tag_contact}"
+    Name          = "${var.X-Customer}-${var.X-Project}_${random_id.instance_id.hex}_${var.X-Application}_security_group"
+    X-Dept        = "${var.X-Dept}"
+    X-Customer    = "${var.X-Customer}"
+    X-Project     = "${var.X-Project}"
+    X-Application = "${var.X-Application}"
+    X-Contact     = "${var.X-Contact}"
     X-TTL         = "${var.tag_ttl}"
   }
 }
