@@ -1,9 +1,9 @@
-#       IPS                 A2_Username   A2_URL: https://danfm123-a2.chef-demo.com
-1:      52.55.66.197        user1
-2:      52.87.223.120       user2
-3:      3.86.88.249         user3
-4:      54.86.52.197        user4
-5:      54.172.106.85       user5
+#               IPS                 A2_Username   A2_URL: https://danfm123-a2.chef-demo.com
+Dan Mills:      52.55.66.197        user1
+James Crow:     52.87.223.120       user2
+Michael Jones:  3.86.88.249         user3
+rhobrown:       54.86.52.197        user4
+Adi Azman:      54.172.106.85       user5
 6:      3.84.9.114          user6
 7:      100.24.52.167       user7
 8:      54.172.125.200      user8
