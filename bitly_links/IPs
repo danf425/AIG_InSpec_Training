@@ -1,25 +1,25 @@
-#               IPS                 A2_Username   A2_URL: https://danfm123-a2.chef-demo.com
-Dan Mills:      52.55.66.197        user1
-James Crow:     52.87.223.120       user2
-Michael Jones:  3.86.88.249         user3
-rhobrown:       54.86.52.197        user4
-Adi Azman:      54.172.106.85       user5
-mjoyce:         3.84.9.114          user6
-Chris Lau:      100.24.52.167       user7
-Mari Ambaye:    54.172.125.200      user8
-Frank Long:     54.175.70.23        user9
-Kris Clark:     34.227.115.187      user10
-lokesh ch:      18.205.190.63       user11
-Atiq Siddiqi:   18.233.226.96       user12
-Phat Nguyen:    3.86.196.106        user13
-Jason List:     35.171.2.225        user14
-Shane Roberts:  54.85.153.105       user15
-Bustami:        174.129.160.109     user16
-17:             35.173.177.129      user17
-18:             3.87.226.233        user18
-19:             54.197.69.177       user19
-Chef Team:      52.1.186.111        user20
+#           IPS         A2_Username   A2_URL: xxxx
+1:          x           user1
+2:          x           user2
+3:          x           user3
+4:          x           user4
+5:          x           user5
+6:          x           user6
+7:          x           user7
+8:          x           user8
+9:          54...23     user9
+10:         34...       user10
+11:         18...63     user11
+12:         ..226.      user12
+13:         3.86..106   user13
+14:         ..2.225     user14
+15:         54...105    user15
+16:         ..160.      user16
+17:         ..177.      user17
+18:         3.87..      user18
+19:         54..69.     user19
+20:         .1.186.     user20
 
 
-Workstation Temporary Password: 123Chef321
-Automate Temporary Password: 123Chef321
+Workstation Temporary Password: xxx
+Automate Temporary Password: xxx
