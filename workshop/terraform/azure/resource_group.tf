@@ -1,0 +1,97 @@
+terraform {
+  required_version = "~> 0.11"
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  subscription_id         = "${var.azure_sub_id}"
+  tenant_id               = "${var.azure_tenant_id}"
+  client_id               = "${var.azure_client_id}"
+  client_secret           = "${var.azure_client_secret}"
+}
+
+resource "random_id" "instance_id" {
+  byte_length = 4
+}
+
+# Create a resource group if it doesn’t exist
+resource "azurerm_resource_group" "rg" {
+  name     = "chef-automate-${random_id.instance_id.hex}-rg"
+  location = "${var.azure_region}"
+
+  tags {
+    X-Dept        = "${var.X-Dept}"
+    X-Customer    = "${var.X-Customer}"
+    X-Project     = "${var.X-Project}"
+    X-Application = "${var.X-Application}"
+    X-Contact     = "${var.X-Contact}"
+    X-TTL         = "${var.X-TTL}"
+  }
+}
+
+# Create virtual network
+resource "azurerm_virtual_network" "vnet" {
+  name                = "chef-automate-${random_id.instance_id.hex}-vnet"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  location            = "${azurerm_resource_group.rg.location}"
+  address_space       = ["10.0.0.0/16"]
+
+  tags {
+    X-Dept        = "${var.X-Dept}"
+    X-Customer    = "${var.X-Customer}"
+    X-Project     = "${var.X-Project}"
+    X-Application = "${var.X-Application}"
+    X-Contact     = "${var.X-Contact}"
+    X-TTL         = "${var.X-TTL}"
+  }
+}
+
+# Create subnets
+resource "azurerm_subnet" "frontend" {
+  name                 = "chef-automate-${random_id.instance_id.hex}-frontend-subnet"
+  resource_group_name  = "${azurerm_resource_group.rg.name}"
+  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  address_prefix       = "10.0.10.0/24"
+}
+
+resource "azurerm_subnet" "backend" {
+  name                 = "chef-automate-${random_id.instance_id.hex}-backend-subnet"
+  resource_group_name  = "${azurerm_resource_group.rg.name}"
+  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  address_prefix       = "10.0.20.0/24"
+}
+
+# Generate random text for a unique storage account name
+resource "random_id" "randomId" {
+  keepers = {
+    # Generate a new ID only when a new resource group is defined
+    resource_group = "${azurerm_resource_group.rg.name}"
+  }
+
+  byte_length = 8
+}
+
+////////////////////
+// Storage for VHDs to make cleanup easy
+
+resource "azurerm_storage_account" "stor" {
+  name                     = "stor${random_id.randomId.hex}"
+  resource_group_name      = "${azurerm_resource_group.rg.name}"
+  location                 = "${azurerm_resource_group.rg.location}"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  tags {
+    X-Dept        = "${var.X-Dept}"
+    X-Customer    = "${var.X-Customer}"
+    X-Project     = "${var.X-Project}"
+    X-Application = "${var.X-Application}"
+    X-Contact     = "${var.X-Contact}"
+    X-TTL         = "${var.X-TTL}"
+  }
+}
+resource "azurerm_storage_container" "storcont" {
+  name 		              = "vhds"
+  resource_group_name 	= "${azurerm_resource_group.rg.name}"
+  storage_account_name 	= "${azurerm_storage_account.stor.name}"
+  container_access_type = "private"
+}

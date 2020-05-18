@@ -1,0 +1,29 @@
+////////////////////////////////
+// AWS Connection
+aws_region="us-east-1"
+aws_profile="solutions-architects"
+origin="effortless"
+
+aws_key_pair_file = "~/.ssh/dmontanez-aws"
+aws_key_pair_name = "dmontanez-aws"
+X-Customer = "AIG-InSpec-Jumpstart"
+X-Project = "AIG-InSpec-Jumpstart-Workshop"
+X-Name = "danf"
+X-Dept = "sales"
+X-Contact = "danf@chef.io"
+X-Application = "AIG-InSpec-Jumpstart"
+
+////////////////////////////////
+// Automate Config
+
+automate_hostname = "danfm123-a2.chef-demo.com"
+X-TTL = 24
+automate_license = ""
+automate_alb_acm_matcher = "*.chef-demo.com"
+automate_alb_r53_matcher = "chef-demo.com."
+automate_custom_ssl = "false"
+automate_user_count = "20"
+automate_user_password = "somepassword"
+workstation_count = "20"
+workstation_user_password = "somepassword"
+code_server_password = "somepassword"
